@@ -13,7 +13,7 @@ const List1 = ({ label, title, path }: iList1) => {
         <p className="text-xs text-[white] rounded-md bg-primary-500 table py-1 px-2 mb-2">
           {label}
         </p>
-        <h2 className="text-xl text-[white]/90">{title}</h2>
+        <h2 className="text-xl text-neutral-100">{title}</h2>
       </div>
       <div className="flex h-full bg-secondary-500 my-auto rounded-lg hover:bg-secondary-300">
         <Link

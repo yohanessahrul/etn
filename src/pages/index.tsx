@@ -8,35 +8,36 @@ const Home = () => {
   const [tasks, setTasks] = useState([
     {
       label: "Task 1",
-      title: "Create a page based on figma design",
+      title: "Create a page (Figma)",
       path: "/task1",
     },
     {
       label: "Task 2",
-      title: "Algorithm search function",
+      title: "Search Algorithm",
       path: "/task2",
     },
     {
       label: "Task 3",
-      title: "CRUD table using data from Mockaroo",
+      title: "CRUD (using: Mockaroo)",
       path: "/task3",
     },
     {
       label: "Task 4",
-      title: "Create table using gorest API",
+      title: "[GET] - Users",
       path: "/task4",
     },
     {
       label: "Task 5",
-      title: "Create registration user using gorest API",
+      title: "[POST] - Users",
       path: "/task5",
     },
   ]);
+
   return (
     <>
       <HeadHtml title="Eratani - Homepage" description="Ini adalah homepage" />
       <Layout formalHeader={false}>
-        <main className="w-full min-h-screen p-6 bg-[#f6f6f6]">
+        <main className="w-full min-h-screen p-6 bg-neutral-200">
           <LinkedInGimmick />
           <ul className="md:w-[500px] sm:w-full my-6 mx-auto">
             {tasks.map((item, i) => (
