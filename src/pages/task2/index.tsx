@@ -37,10 +37,10 @@ const Task2 = () => {
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto">
             <Nav task="2" />
             <div className="bg-neutral-100 shadow-md p-6">
-              <h1 className="text-2xl ">Search Algorithm</h1>
+              <h1 className="text-3xl">Search Algorithm</h1>
               <div className="bg-neutral-300 p-0 flex flex-col mt-4 rounded-lg overflow-hidden">
                 <div className="w-full bg-neutral-200 p-6 flex items-start">
-                  <div className="w-full sm:min-h-[100px] min-h-[200px]">
+                  <div className="w-full ">
                     <input
                       className="w-full px-2 py-2 rounded-md shadow-md"
                       onKeyUp={(e: any) => {
@@ -70,10 +70,8 @@ const data = [
   "John Wick",
   "Hadi PS",
   "Derian Lekso"
-];`}
-                  </pre>
-                  <pre>
-                    {`
+];
+
 function search (searchKey) {
   const searchResult = [...data].filter((item) => {
     if (item.toLowerCase().includes(searchKey)) {
