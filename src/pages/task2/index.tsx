@@ -1,7 +1,6 @@
 import HeadHtml from "@/components/head";
 import Layout from "@/components/layouts";
 import Nav from "@/components/nav";
-import Link from "next/link";
 import { useState } from "react";
 
 const Task2 = () => {
