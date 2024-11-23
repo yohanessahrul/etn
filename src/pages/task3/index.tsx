@@ -10,6 +10,21 @@ import {
   faEllipsisVertical,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
+import Filter from "@/components/filter";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
+interface iCustomer {
+  id: number;
+  avatar: string;
+  full_name: string;
+  city: string;
+  car: string;
+  phone: string;
+  year: number;
+}
 
 const Task3 = () => {
   const [data, setData] = useState([...jsonData]);
@@ -17,7 +32,15 @@ const Task3 = () => {
   const [car, setCar] = useState("");
   const [city, setCity] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [customer, setCustomer] = useState(null);
+  const [customer, setCustomer] = useState<iCustomer>({
+    id: 0,
+    avatar: "",
+    full_name: "",
+    city: "",
+    car: "",
+    phone: "",
+    year: 0,
+  });
 
   useEffect(() => {
     if (openDrawer) {
@@ -49,18 +72,50 @@ const Task3 = () => {
     setData(filterCity);
   };
 
-  const openDrawerHandler = (customer: any) => {
-    console.log("customer", customer);
+  const openDrawerHandler = (customer: iCustomer) => {
     setOpenDrawer(true);
     setCustomer(customer);
   };
 
   const closeDrawerHandler = () => {
-    setOpenDrawer(true);
-    setCustomer(null);
+    setOpenDrawer(false);
+    setCustomer({
+      id: 0,
+      avatar: "",
+      full_name: "",
+      city: "",
+      car: "",
+      phone: "",
+      year: 0,
+    });
   };
 
-  const changeCustomerDataHandler = () => {};
+  const changeCustomerDataHandler = () => {
+    let index = data.findIndex((item) => item.id === customer.id);
+    data[index].full_name = customer.full_name;
+    data[index].car = customer.car;
+    data[index].city = customer.city;
+    data[index].phone = customer.phone;
+
+    setData(data);
+    closeDrawerHandler();
+    Swal.fire({
+      title: "Good job!",
+      text: "You updated the data",
+      icon: "success",
+    });
+  };
+
+  const deleteCustomerDataHandler = (id: number) => {
+    const filterData = data.filter((item) => item.id !== id);
+    setData(filterData);
+    closeDrawerHandler();
+    Swal.fire({
+      title: "Good job!",
+      text: "You deleted the data",
+      icon: "success",
+    });
+  };
 
   return (
     <>
@@ -69,48 +124,20 @@ const Task3 = () => {
         description="CRUD data sample from mockaroo"
       />
       <Layout formalHeader={false}>
-        <main className="w-full min-h-screen bg-neutral-200 relative">
+        <main className="w-full min-h-screen bg-neutral-200">
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto ">
             <Nav task="3" />
             <div className="bg-neutral-100 shadow-md p-6">
               <h1 className="text-3xl">CRUD (using: Mockaroo)</h1>
-              <div className="grid md:grid-cols-4 sm:grid-cols-1 gap-4 my-6 bg-secondary-500 p-4 rounded-xl">
-                <div className="w-full h-10">
-                  <input
-                    className="w-full h-full p-2 rounded-md"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Search Name"
-                  />
-                </div>
-                <div className="w-full h-10">
-                  <input
-                    className="w-full h-full p-2 rounded-md"
-                    type="text"
-                    value={car}
-                    onChange={(e) => setCar(e.target.value)}
-                    placeholder="Search Car"
-                  />
-                </div>
-                <div className="w-full h-10">
-                  <input
-                    className="w-full h-full p-2 rounded-md"
-                    type="text"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="Search City"
-                  />
-                </div>
-                <div className="w-full h-10 ">
-                  <button
-                    className="w-full h-full bg-primary-800 rounded-md text-neutral-100"
-                    onClick={handleSearch}
-                  >
-                    Cari
-                  </button>
-                </div>
-              </div>
+              <Filter
+                name={name}
+                setName={(value) => setName(value)}
+                car={car}
+                setCar={(value) => setCar(value)}
+                city={city}
+                setCity={(value) => setCity(value)}
+                searchHandler={() => handleSearch()}
+              />
               &nbsp;
               <div className="w-full overflow-y-hidden">
                 <table
@@ -187,7 +214,7 @@ const Task3 = () => {
               openDrawer ? "translate-x-0" : "translate-x-full"
             } transition-transform duration-300`}
           >
-            <div className="md:w-[600px] sm:w-full min-h-full p-4 bg-neutral-100">
+            <div className="w-[350px] sm:w-full min-h-full p-4 bg-neutral-100">
               <button
                 className="px-4 py-3 bg-neutral-500 text-neutral-100 rounded-full"
                 onClick={() => setOpenDrawer(!openDrawer)}
@@ -197,8 +224,64 @@ const Task3 = () => {
                   icon={faClose}
                 />
               </button>
-              <div className="border-b-2 py-4">
-                <p>{JSON.stringify(customer)}</p>
+              <div className="border-b-2 border-neutral-200 py-4">
+                <div className="flex w-[120px] h-[120px] bg-neutral-200 rounded-full mb-4 m-auto relative mb-9">
+                  <Image
+                    width={120}
+                    height={120}
+                    style={{ objectFit: "contain" }}
+                    src={customer.avatar}
+                    alt="avatar"
+                  />
+                </div>
+                <input
+                  className="w-full rounded-md bg-neutral-200 px-2 py-2 mb-4"
+                  type="text"
+                  value={customer?.full_name}
+                  required
+                  onChange={(e) => {
+                    setCustomer({ ...customer, full_name: e.target.value });
+                  }}
+                />
+                <input
+                  className="w-full rounded-md bg-neutral-200 px-2 py-2 mb-4"
+                  type="text"
+                  value={customer?.phone}
+                  required
+                  onChange={(e) => {
+                    setCustomer({ ...customer, phone: e.target.value });
+                  }}
+                />
+                <input
+                  className="w-full rounded-md bg-neutral-200 px-2 py-2 mb-4"
+                  type="text"
+                  value={customer?.car}
+                  required
+                  onChange={(e) => {
+                    setCustomer({ ...customer, car: e.target.value });
+                  }}
+                />
+                <input
+                  className="w-full rounded-md bg-neutral-200 px-2 py-2 mb-4"
+                  type="text"
+                  value={customer?.city}
+                  required
+                  onChange={(e) => {
+                    setCustomer({ ...customer, city: e.target.value });
+                  }}
+                />
+                <button
+                  className="w-full rounded-md bg-primary-600 text-neutral-100 px-2 py-2 mb-4"
+                  onClick={changeCustomerDataHandler}
+                >
+                  UPDATE
+                </button>
+                <button
+                  className="w-full rounded-md bg-others2-500 text-neutral-100 px-2 py-2 mb-4"
+                  onClick={() => deleteCustomerDataHandler(customer.id)}
+                >
+                  DELETE
+                </button>
               </div>
             </div>
           </div>

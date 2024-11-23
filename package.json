@@ -16,7 +16,9 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "next": "13.5.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sweetalert2": "^11.14.5",
+    "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

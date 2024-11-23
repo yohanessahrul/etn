@@ -1,3 +1,5 @@
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 const Nav = ({ task }: { task: string }) => {
@@ -6,8 +8,9 @@ const Nav = ({ task }: { task: string }) => {
       <div className="flex items-center">
         <Link
           href="/"
-          className="text-md bg-secondary-400 py-1 px-2 rounded-md font-bold"
+          className="text-md bg-secondary-400 py-1 px-2 rounded-md font-bold flex"
         >
+          <FontAwesomeIcon className="w-[20px] mr-2" icon={faArrowLeftLong} />
           Back
         </Link>
       </div>
