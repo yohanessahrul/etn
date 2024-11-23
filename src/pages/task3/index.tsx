@@ -12,9 +12,25 @@ const Task3 = () => {
   const [city, setCity] = useState("");
 
   const handleSearch = () => {
-    console.log("name", name);
-    console.log("car", car);
-    console.log("city", city);
+    const filterName = [...jsonData].filter((item) => {
+      if (item.full_name.toLowerCase().includes(name)) {
+        return item;
+      }
+    });
+
+    const filterCar = [...filterName].filter((item) => {
+      if (item.car.toLowerCase().includes(car)) {
+        return item;
+      }
+    });
+
+    const filterCity = [...filterCar].filter((item) => {
+      if (item.city.toLowerCase().includes(city)) {
+        return item;
+      }
+    });
+
+    setData(filterCity);
   };
 
   return (
