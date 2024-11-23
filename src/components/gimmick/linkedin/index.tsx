@@ -35,7 +35,7 @@ const LinkedInGimmick = () => {
           <span className="font-medium ml-2">Eratani</span>
         </div>
       </div>
-      <div className="absolute w-[150px] h-[150px] bg-[white] rounded-full bottom-[80px] left-6 p-4 overflow-hidden border-4 border-[white]">
+      <div className="absolute w-[100px] h-[100px] bg-[white] rounded-full bottom-[90px] left-6 p-4 overflow-hidden border-4 border-[white]">
         <Image
           src="/images/yosa-avatar.jpeg"
           alt="avatar"
