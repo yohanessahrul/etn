@@ -12,9 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Filter from "@/components/filter";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
 
 interface iCustomer {
   id: number;
@@ -107,13 +104,26 @@ const Task3 = () => {
   };
 
   const deleteCustomerDataHandler = (id: number) => {
-    const filterData = data.filter((item) => item.id !== id);
-    setData(filterData);
-    closeDrawerHandler();
     Swal.fire({
-      title: "Good job!",
-      text: "You deleted the data",
-      icon: "success",
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const filterData = data.filter((item) => item.id !== id);
+        setData(filterData);
+        closeDrawerHandler();
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
     });
   };
 
