@@ -5,7 +5,7 @@ const LinkedInGimmick = () => {
     <div className="md:w-[500px] sm:w-full h-[325px] bg-[#e0e0e0] mx-auto rounded-2xl flex flex-col overflow-hidden shadow-md relative">
       <div className="md:w-[500px] sm:w-full h-[200px] bg-[gray] relative">
         <Image
-          src="/images/hero-2.jpg"
+          src="/images/hero-1.jpg"
           alt="hero"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
