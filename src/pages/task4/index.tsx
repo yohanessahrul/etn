@@ -41,7 +41,6 @@ const Task4: React.FC<iTask4> = ({ data }) => {
   };
 
   const onSubmit = async (data: any) => {
-    console.log("Form Data:", data);
     try {
       const response = await fetch("https://gorest.co.in/public/v2/users", {
         method: "POST",
