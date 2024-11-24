@@ -67,7 +67,6 @@ const Task4: React.FC<iTask4> = ({ data }) => {
         closeDrawerHandler();
       } else {
         const errorData = await response.json();
-        console.log("errorData", errorData);
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -83,8 +82,6 @@ const Task4: React.FC<iTask4> = ({ data }) => {
     setOpenDrawer(false);
     reset();
   };
-
-  console.log("errors", errors);
 
   return (
     <>
@@ -200,7 +197,7 @@ const Task4: React.FC<iTask4> = ({ data }) => {
                   </div>
                   {/* asdsd */}
                   {errors.gender && (
-                    <p className="text-red-500 text-sm -mt-[15px] mb-4 text-others2-500">
+                    <p className="text-red-500 text-sm mb-4 text-others2-500">
                       {errors.gender.message}
                     </p>
                   )}
@@ -244,7 +241,7 @@ const Task4: React.FC<iTask4> = ({ data }) => {
                     </div>
                   </div>
                   {errors.status && (
-                    <p className="text-red-500 text-sm -mt-[15px] mb-4 text-others2-500">
+                    <p className="text-red-500 text-sm mb-4 text-others2-500">
                       {errors.status.message}
                     </p>
                   )}
