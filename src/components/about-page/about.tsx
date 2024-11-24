@@ -20,28 +20,3 @@ const About = () => {
 };
 
 export default About;
-
-{
-  /* <Image
-  fill
-  style={{ objectFit: "cover" }}
-  src="/images/tentang-thumbnail.png"
-  alt="About"
-/>; */
-}
-{
-  /* <p
-    className={`md:text-[25px] sm:text-[18px] text-[12px] md:leading-[40px] sm:leading-[30px] leading-[16px] text-justify text-neutral-500 ${lato.className}`}
-  >
-    Eratani adalah perusahaan Agri-tech yang didirikan oleh anak
-    bangsa. Berangkat dari mimpi dan semangat yang besar, Eratani
-    memiliki misi untuk menyejahterakan petani nusantara dengan
-    mempermudah jalannya proses pertanian dari hulu sampai hilir.
-    Melalui digitalisasi proses hulu (pendanaan petani, pengelolaan
-    rantai pasokan) hingga proses hilir (distribusi & penyaluran hasil
-    panen), Eratani berfokus membangun ekosistem pertanian yang kuat
-    dan berusaha memberikan kemudahan akses kepada petani dengan
-    teknologi untuk meningkatkan produktivitas dan kesejahteraan
-    ekosistem pertanian.
-  </p> */
-}
