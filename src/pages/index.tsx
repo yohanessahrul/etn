@@ -22,14 +22,9 @@ const Home = () => {
       path: "/task3",
     },
     {
-      label: "Task 4",
-      title: "[GET] - Users",
+      label: "Task 4, Task 5",
+      title: "Users - Get and Post",
       path: "/task4",
-    },
-    {
-      label: "Task 5",
-      title: "[POST] - Users",
-      path: "/task5",
     },
   ]);
 
