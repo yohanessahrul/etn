@@ -88,7 +88,7 @@ const Task4: React.FC<iTask4> = ({ data }) => {
         title="Users - Get and Post"
         description="Akses API gorest dan tampilkan daftar users"
       />
-      <Layout formalHeader={false}>
+      <Layout formalHeader={false} formalFooter={false}>
         <main className="w-full min-h-screen bg-neutral-200">
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto">
             <Nav task="4 & 5" />
