@@ -31,7 +31,7 @@ const Task2 = () => {
         title="Search Algorithm"
         description="Buatlah fungsi logic algorithm search dari sebuah array"
       />
-      <Layout formalHeader={false}>
+      <Layout formalHeader={false} formalFooter={false}>
         <main className="w-full min-h-screen bg-neutral-200">
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto">
             <Nav task="2" />

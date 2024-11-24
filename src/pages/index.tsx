@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       <HeadHtml title="Eratani - Homepage" description="Ini adalah homepage" />
-      <Layout formalHeader={false}>
+      <Layout formalHeader={false} formalFooter={false}>
         <main className="w-full min-h-screen p-6 bg-neutral-200">
           <LinkedInGimmick />
           <ul className="md:w-[500px] sm:w-full my-6 mx-auto">

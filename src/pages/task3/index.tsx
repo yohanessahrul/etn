@@ -131,7 +131,7 @@ const Task3 = () => {
         title="CRUD (using: Mackaroo)"
         description="CRUD data sample from mockaroo"
       />
-      <Layout formalHeader={false}>
+      <Layout formalHeader={false} formalFooter={false}>
         <main className="w-full min-h-screen bg-neutral-200">
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto ">
             <Nav task="3" />

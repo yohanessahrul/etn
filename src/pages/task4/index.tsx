@@ -85,15 +85,15 @@ const Task4: React.FC<iTask4> = ({ data }) => {
   return (
     <>
       <HeadHtml
-        title="[GET] - Users"
+        title="Users - Get and Post"
         description="Akses API gorest dan tampilkan daftar users"
       />
-      <Layout formalHeader={false}>
+      <Layout formalHeader={false} formalFooter={false}>
         <main className="w-full min-h-screen bg-neutral-200">
           <div className="lg:w-[990px] md:w-[500px] sm:w-full mx-auto">
-            <Nav task="4" />
+            <Nav task="4 & 5" />
             <div className="bg-neutral-100 shadow-md p-6">
-              <h1 className="text-3xl">[GET] - Users</h1>
+              <h1 className="text-3xl">Users - Get and Post</h1>
               <button
                 className="bg-others1-700 text-neutral-100 py-2 px-4 font-bold rounded-lg flex items-center my-9"
                 onClick={openDrawerHandler}

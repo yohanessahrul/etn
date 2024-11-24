@@ -1,3 +1,8 @@
+import About from "@/components/about-page/about";
+import Banner from "@/components/about-page/banner";
+import Misi from "@/components/about-page/misi";
+import Team from "@/components/about-page/team";
+import Visi from "@/components/about-page/visi";
 import HeadHtml from "@/components/head";
 import Layout from "@/components/layouts";
 
@@ -8,15 +13,13 @@ const Task1 = () => {
         title="Create a page (Figma)"
         description="Pilih satu page design dari figma dan buat menggunakan framework react"
       />
-      <Layout formalHeader={true}>
+      <Layout formalHeader={true} formalFooter={true}>
         <main>
-          <h1>Slicing Figma !</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-            accusantium exercitationem nobis culpa, nam nostrum repellendus
-            aliquam totam, pariatur a cum at ducimus? Nostrum suscipit qui,
-            laborum expedita molestiae reiciendis!
-          </p>
+          <Banner />
+          <About />
+          <Visi />
+          <Misi />
+          <Team />
         </main>
       </Layout>
     </>
